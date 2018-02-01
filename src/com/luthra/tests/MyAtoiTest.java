@@ -5,14 +5,28 @@ import com.luthra.solutions.MyAtoi;
 
 public class MyAtoiTest {
     @Test
-    public void TemporaryTest () {
+    public void TestBasicConversion () {
         Assert.assertEquals(12345, MyAtoi.atoi("12345"));
-        Assert.assertEquals(0, MyAtoi.atoi(" r t y y"));
-        
-        try {
-            Assert.assertEquals(-2147483648, MyAtoi.atoi("-2147483648"));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Assert.assertEquals(-12345, MyAtoi.atoi("-12345"));
+        Assert.assertEquals(0, MyAtoi.atoi("noNums"));
+        Assert.assertEquals(12345, MyAtoi.atoi("12345"));
+    }
+
+    @Test
+    public void TestOverlfow () {
+        Assert.assertEquals(2147483647, MyAtoi.atoi("2147483647"));
+        Assert.assertEquals(2147483647, MyAtoi.atoi("2147483648"));
+        Assert.assertEquals(-2147483647, MyAtoi.atoi("-2147483647"));
+        Assert.assertEquals(-2147483648, MyAtoi.atoi("-2147483648"));
+        Assert.assertEquals(-2147483648, MyAtoi.atoi("-2147483650"));
+    }
+
+    @Test
+    public void TestStartEndDetection () {
+        Assert.assertEquals(10, MyAtoi.atoi("   010"));
+        Assert.assertEquals(0, MyAtoi.atoi("+-2"));
+        Assert.assertEquals(2, MyAtoi.atoi("+2"));
+        Assert.assertEquals(-2, MyAtoi.atoi("-2"));
+        Assert.assertEquals(0, MyAtoi.atoi("  b10"));
     }
 }
