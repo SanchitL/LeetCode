@@ -7,9 +7,15 @@ public class MyAtoiTest {
     @Test
     public void TestBasicConversion () {
         Assert.assertEquals(12345, MyAtoi.atoi("12345"));
-        Assert.assertEquals(-12345, MyAtoi.atoi("-12345"));
         Assert.assertEquals(0, MyAtoi.atoi("noNums"));
         Assert.assertEquals(12345, MyAtoi.atoi("12345"));
+    }
+
+    @Test
+    public void TestSignDetection () {
+        Assert.assertEquals(-1, MyAtoi.atoi("-1"));
+        Assert.assertEquals(-1, MyAtoi.atoi("  -1"));
+
     }
 
     @Test
