@@ -15,7 +15,6 @@ public class MyAtoiTest {
     public void TestSignDetection () {
         Assert.assertEquals(-1, MyAtoi.atoi("-1"));
         Assert.assertEquals(-1, MyAtoi.atoi("  -1"));
-
     }
 
     @Test
