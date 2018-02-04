@@ -11,25 +11,14 @@ public class MergeSortedLists {
 
         while (l1 != null && l2 != null) {
             int toAdd;
-            if (l1.val > l2.val) {
+            if (l1.val >= l2.val) {
                 toAdd = l2.val;
                 l2 = l2.next;
-            } else if (l2.val > l1.val) {
+            } else {
                 toAdd = l1.val;
                 l1 = l1.next;
-            } else {
-                // Add both to list as they are equal
-                toAdd = -1;
             }
-
-            if (toAdd >= 0) {
-                merged.add(new ListNode(toAdd));
-            } else {
-                merged.add(new ListNode(l1.val));
-                merged.add(new ListNode(l2.val));
-                l1 = l1.next;
-                l2 = l2.next;
-            }
+            merged.add(new ListNode(toAdd));
         }        
 
         if (l2 != null) {
